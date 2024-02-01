@@ -3,7 +3,7 @@ import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID:
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
-let userID = '08523';
+let userID = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
 
 const proxyIPs = ['23.162.136.169', 'cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
 
@@ -721,8 +721,8 @@ kntol
         <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: white;
+            color: black;
             padding: 10px;
         }
 
@@ -746,8 +746,8 @@ kntol
 		/* Dark mode */
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #333;
-                color: #f0f0f0;
+                background-color: white;
+                color: black;
             }
 
             a {
