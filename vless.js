@@ -1,31 +1,22 @@
-// @ts-ignore
+
 import { connect } from 'cloudflare:sockets';
 
-// How to generate your own UUID:
-// [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
 let userID = '608f261c-6477-4dd5-9490-6781a55daa81';
 
-const proxyIPs = ['cdn-all.xn--b6gac.eu.org'];
-
+const proxyIPs = ['23.162.136.169', 'cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
-let dohURL = 'https://dns.google/dns-query'; // https://cloudflare-dns.com/dns-query or https://dns.google/dns-query
+let dohURL = 'https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg='; // https://cloudflare-dns.com/dns-query or https://dns.google/dns-query
 
-// v2board api environment variables (optional) deprecated, please use planetscale.com instead
 
 if (!isValidUUID(userID)) {
 	throw new Error('uuid is invalid');
 }
 
 export default {
-	/**
-	 * @param {import("@cloudflare/workers-types").Request} request
-	 * @param {{UUID: string, PROXYIP: string, DNS_RESOLVER_URL: string, NODE_ID: int, API_HOST: string, API_TOKEN: string}} env
-	 * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
-	 * @returns {Promise<Response>}
-	 */
+	
 	async fetch(request, env, ctx) {
-		// uuid_validator(request);
+		
 		try {
 			userID = env.UUID || userID;
 			proxyIP = env.PROXYIP || proxyIP;
