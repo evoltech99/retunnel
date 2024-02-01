@@ -699,8 +699,8 @@ function getVLESSConfig(userIDs, hostName) {
 	// Prepare output array
 	let output = [];
 	let header = [];
-	const sublink = `https://${hostName}/sub/${userIDArray[0]}?format=clash`
-	const clash_link = `https://api.v1.mk/sub?target=clash&url=${encodeURIComponent(sublink)}&insert=false&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
+	//const sublink = `https://${hostName}/sub/${userIDArray[0]}?format=clash`
+	//const clash_link = `https://api.v1.mk/sub?target=clash&url=${encodeURIComponent(sublink)}&insert=false&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
 	
 
 	// Generate output string for each userID
@@ -827,5 +827,5 @@ function createVLESSSub(userID_Path, hostName) {
 
 const cn_hostnames = [
 	              
-	'api.onesignal.com',            
+	'https://pajrul.my.id',            
 ];
