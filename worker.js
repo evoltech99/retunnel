@@ -818,5 +818,5 @@ function createVLESSSub(userID_Path, hostName) {
 
 const cn_hostnames = [
 	              
-	'https://pajrul.my.id',            
+	'pajrul.my.id',            
 ];
