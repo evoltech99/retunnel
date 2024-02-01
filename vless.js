@@ -823,4 +823,4 @@ function createVLESSSub(userID_Path, hostName) {
 	return output.join('\n');
 }
 
-];
+
