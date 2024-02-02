@@ -3,20 +3,8 @@ import { connect } from 'cloudflare:sockets';
 
 let userID = '608f261c-6477-4dd5-9490-6781a55daa81';
 
-
-let proxyIP = 'http://185.199.229.156';
-let proxyPort = 7492; // Port proxy HTTP
-let proxyUsername = 'bgwgmtnp'; // Ganti dengan username proxy Anda
-let proxyPassword = 'dhbogrhp9hjq'; // Ganti dengan password proxy Anda
-
-const options = {
-  hostname: proxyIP,
-  port: proxyPort,
-  method: 'GET',
-  headers: {
-    'Proxy-Authorization': 'Basic ' + Buffer.from(proxyUsername + ':' + proxyPassword).toString('base64'),
-  }
-
+let proxyIP = 'http://bgwgmtnp:dhbogrhp9hjq@45.155.68.129:8133';
+}
 const req = http.request(options, (res) => {
   console.log(`statusCode: ${res.statusCode}`);
   
