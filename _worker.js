@@ -1,37 +1,29 @@
-
+// @ts-ignore
 import { connect } from 'cloudflare:sockets';
 
-let userID = '608f261c-6477-4dd5-9490-6781a55daa81';
+// How to generate your own UUID:
+// [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
+let userID = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
 
 let proxyIP = 'http://bgwgmtnp:dhbogrhp9hjq@45.155.68.129:8133';
-}
-const req = http.request(options, (res) => {
-  console.log(`statusCode: ${res.statusCode}`);
-  
-  res.on('data', (chunk) => {
-    process.stdout.write(chunk);
-  });
-});
-
-req.on('error', (error) => {
-  console.error(error);
-});
-
-req.end();
-
-
 
 let dohURL = 'https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg='; // https://cloudflare-dns.com/dns-query or https://dns.google/dns-query
 
+// v2board api environment variables (optional) deprecated, please use planetscale.com instead
 
 if (!isValidUUID(userID)) {
 	throw new Error('uuid is invalid');
 }
 
 export default {
-	
+	/**
+	 * @param {import("@cloudflare/workers-types").Request} request
+	 * @param {{UUID: string, PROXYIP: string, DNS_RESOLVER_URL: string, NODE_ID: int, API_HOST: string, API_TOKEN: string}} env
+	 * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
+	 * @returns {Promise<Response>}
+	 */
 	async fetch(request, env, ctx) {
-		
+		// uuid_validator(request);
 		try {
 			userID = env.UUID || userID;
 			proxyIP = env.PROXYIP || proxyIP;
@@ -705,8 +697,8 @@ function getVLESSConfig(userIDs, hostName) {
 	// Prepare output array
 	let output = [];
 	let header = [];
-	//const sublink = `https://${hostName}/sub/${userIDArray[0]}?format=clash`
-	//const clash_link = `https://api.v1.mk/sub?target=clash&url=${encodeURIComponent(sublink)}&insert=false&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
+	const sublink = `https://${hostName}/sub/${userIDArray[0]}?format=clash`
+	const clash_link = `https://api.v1.mk/sub?target=clash&url=${encodeURIComponent(sublink)}&insert=false&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
 	
 
 	// Generate output string for each userID
@@ -722,15 +714,13 @@ function getVLESSConfig(userIDs, hostName) {
 	// HTML Head with CSS
 	const htmlHead = `
     <head>
-
-    
-<div id="judul" class="judul>Vless Account Details : </div>
-<br>
+        
+kntol
         <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: white;
-            color: black;
+            background-color: #f0f0f0;
+            color: #333;
             padding: 10px;
         }
 
@@ -754,8 +744,8 @@ function getVLESSConfig(userIDs, hostName) {
 		/* Dark mode */
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: white;
-                color: black;
+                background-color: #333;
+                color: #f0f0f0;
             }
 
             a {
@@ -763,8 +753,8 @@ function getVLESSConfig(userIDs, hostName) {
             }
 
             pre {
-                background-color: #D0D0D0;
-                border-color: Black;
+                background-color: #282a36;
+                border-color: #6272a4;
             }
         }
         </style>
@@ -832,6 +822,5 @@ function createVLESSSub(userID_Path, hostName) {
 }
 
 const cn_hostnames = [
-	              
-	'pajrul.my.id',            
+	'pajrul.my.id',                
 ];
