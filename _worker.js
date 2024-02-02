@@ -16,7 +16,6 @@ const options = {
   headers: {
     'Proxy-Authorization': 'Basic ' + Buffer.from(proxyUsername + ':' + proxyPassword).toString('base64'),
   }
-};
 
 const req = http.request(options, (res) => {
   console.log(`statusCode: ${res.statusCode}`);
