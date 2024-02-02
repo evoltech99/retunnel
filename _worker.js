@@ -2,7 +2,36 @@
 import { connect } from 'cloudflare:sockets';
 
 let userID = '608f261c-6477-4dd5-9490-6781a55daa81';
-let proxyIP = ['8.219.238.145'];
+const http = require('http');
+
+const proxyIP = '185.199.229.156';
+const proxyPort = 7492; // Port proxy HTTP
+const proxyUsername = 'bgwgmtnp'; // Ganti dengan username proxy Anda
+const proxyPassword = 'dhbogrhp9hjq'; // Ganti dengan password proxy Anda
+
+const options = {
+  hostname: proxyIP,
+  port: proxyPort,
+  method: 'GET',
+  headers: {
+    'Proxy-Authorization': 'Basic ' + Buffer.from(proxyUsername + ':' + proxyPassword).toString('base64'),
+  }
+};
+
+const req = http.request(options, (res) => {
+  console.log(`statusCode: ${res.statusCode}`);
+  
+  res.on('data', (chunk) => {
+    process.stdout.write(chunk);
+  });
+});
+
+req.on('error', (error) => {
+  console.error(error);
+});
+
+req.end();
+
 
 
 let dohURL = 'https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg='; // https://cloudflare-dns.com/dns-query or https://dns.google/dns-query
