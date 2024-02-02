@@ -2,12 +2,12 @@
 import { connect } from 'cloudflare:sockets';
 
 let userID = '608f261c-6477-4dd5-9490-6781a55daa81';
-const http = require('http');
+let http = require('http');
 
-const proxyIP = '185.199.229.156';
-const proxyPort = 7492; // Port proxy HTTP
-const proxyUsername = 'bgwgmtnp'; // Ganti dengan username proxy Anda
-const proxyPassword = 'dhbogrhp9hjq'; // Ganti dengan password proxy Anda
+let proxyIP = '185.199.229.156';
+let proxyPort = 7492; // Port proxy HTTP
+let proxyUsername = 'bgwgmtnp'; // Ganti dengan username proxy Anda
+let proxyPassword = 'dhbogrhp9hjq'; // Ganti dengan password proxy Anda
 
 const options = {
   hostname: proxyIP,
